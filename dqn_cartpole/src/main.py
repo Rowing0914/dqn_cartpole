@@ -66,7 +66,7 @@ class DQN:
         self.target_model.set_weights(self.main_model.get_weights())  # make sure to start with the same params
         self.memory = replay_buffer(memory_size=memory_size)  # see utils/replay_buffer.py
         self.scheduler = linear_scheduler(total_timesteps=decay_step, final_ratio=ep_end)
-        self.summary_writer = tf.compat.v2.summary.create_file_writer("../../logs/{}".format(log_dir))
+        self.summary_writer = tf.compat.v2.summary.create_file_writer("./logs/{}".format(log_dir))
 
     def choose_action(self, state):
         """ Epsilon-greedy policy """
